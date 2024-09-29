@@ -1,0 +1,38 @@
+/* Profile.css */
+.profile-menu {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    z-index: 1000; /* Ensure it stays on top */
+  }
+  
+  .profile-pic img {
+    width: 20px; /* Adjust as needed */
+    height: 20px; /* Adjust as needed */
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: #ffff;
+  }
+  
+  .dropdown-menu {
+    right: 0;
+    left: auto; /* Align dropdown to the right */
+    margin-top: 10px;
+    min-width: 200px; /* Set a minimum width */
+  }
+  
+  .dropdown-item i {
+    margin-right: 10px; /* Spacing between icon and text */
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-link:hover .profile-pic img {
+    border: 2px solid #007bff; /* Highlight on hover */
+  }
+  

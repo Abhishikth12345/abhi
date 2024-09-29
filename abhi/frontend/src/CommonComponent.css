@@ -1,0 +1,443 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.poppins-regular {
+  font-family: "Poppins", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-medium {
+  font-family: "Poppins", system-ui;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.poppins-semibold {
+  font-family: "Poppins", system-ui;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.app {
+  height: 100vh;
+  display: flex;
+  color: white;
+  background:url("./Assets/qna_bg.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+.main {
+  width: 75%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #020230),
+    url("./Assets/background.jpg") center;
+  display: flex;
+  background-size: cover;
+  flex-direction: column;
+}
+
+.pyramid {
+  width: 25%;
+  background-color: #020230; /* Dark background for contrast */
+  display: flex;
+  flex-direction: column; /* Align items in a column for a better look */
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+  position: relative;
+  overflow: hidden;
+  padding: 20px; /* Add padding for better spacing */
+}
+
+/* Pyramid base style */
+.pyramid::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.1));
+  z-index: 1;
+}
+
+.pyramid > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Border with animation */
+.pyramid {
+  border: 2px solid #FFD700; /* Gold border */
+  border-radius: 10px; /* Ensure border-radius matches */
+}
+
+/* Optional: Add animation to the border */
+@keyframes borderPulse {
+  0% { border-color: #FFD700; }
+  50% { border-color: #FFA500; }
+  100% { border-color: #FFD700; }
+}
+
+.pyramid {
+  animation: borderPulse 2s infinite;
+}
+
+/* Money list styling */
+.moneyList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  z-index: auto;
+}
+
+.moneyListItem {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  margin: 5px 0; /* Space between items */
+}
+
+.moneyListItem.active {
+  background-color: teal;
+}
+
+.moneyListItemNumber {
+  width: 20%;
+  font-size: 18px;
+  font-weight: 600; /* Slightly heavier font weight for emphasis */
+}
+
+.moneyListItemAmount {
+  font-size: 20px;
+  font-weight: 700; /* Heavier font weight for amounts */
+  margin-left: 10px; /* Space between number and amount */
+}
+
+
+.top {
+  height: 50%;
+  position: relative;
+}
+
+.alert-border-circle-timer {
+  border: 3px solid white;
+  height: 90px;
+  width: 90px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 9px;
+  right: 30px;
+  font-size: 30px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ff005d, #ff4000);
+  animation: blink 1s linear infinite; /* Runs the blink effect every 1 second for 30 seconds */
+}
+
+@keyframes blink {
+  100% { border-color: rgb(21, 13, 13); }
+}
+
+.alert-border-circle-timer:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg,  #FFA500, #FF4500);
+}
+
+
+.bottom {
+  height: 50%;
+  margin-bottom: 20%;
+}
+
+.trivia {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.question {
+  width: 80%;
+  background: linear-gradient(#100241, black);
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid white;
+  font-size: 25px;
+}
+
+.answers {
+  width: 90%;
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.answer {
+  width: 40%;
+  padding: 10px;
+  margin: 0 10px 20px 10px;
+  text-align: center;
+  background: linear-gradient(#0e0124, #22074d);
+  border: 1px solid white;
+  border-radius: 15px;
+  font-weight: 300;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.answer:hover,
+.answer.active {
+  background: mediumblue;
+}
+
+.answer.correct {
+  animation: correct  ease forwards;
+}
+
+@keyframes correct {
+  0%,
+  22%,
+  42% {
+    background: mediumblue;
+  }
+  20%,
+  40%,
+  60% {
+    background: linear-gradient(#0e0124, #22074d);
+  }
+  62%,
+  100% {
+    background: green;
+  }
+}
+
+.answer.wrong {
+  animation: wrong  ease forwards;
+}
+
+@keyframes wrong {
+  0%,
+  22%,
+  42% {
+    background: mediumblue;
+  }
+  20%,
+  40%,
+  60% {
+    background: linear-gradient(#0e0124, #22074d);
+  }
+  62%,
+  100% {
+    background: crimson;
+  }
+}
+
+.endText {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.start {
+  width: 250px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.startInput {
+  width: 100%;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.startInput:focus {
+  outline: none;
+}
+
+.startButton {
+  width: 100%;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.lifelines {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 15px; /* Space between lifeline buttons */
+}
+
+.lifeline-button {
+  background: linear-gradient(#0e0124, #22074d); /* Match the gradient used in answers */
+  color: white;
+  border: 1px solid #FFD700; /* Gold border for consistency with pyramid border */
+  border-radius: 15px; /* Rounded corners */
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.2s, border-color 0.3s;
+  display: flex;
+  align-items: center; /* Center text and icon vertically */
+}
+
+.lifeline-button:hover {
+  background: mediumblue; /* Hover effect similar to answer buttons */
+  border-color: #FFA500; /* Lighter border color on hover */
+}
+
+.lifeline-button.disabled {
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent background for disabled state */
+  border-color: #6c757d; /* Gray border for disabled state */
+  color: #6c757d; /* Gray text color for disabled state */
+  cursor: not-allowed;
+}
+
+.lifeline-text {
+  display: flex;
+  align-items: center; /* Align text with icon */
+}
+
+/* Points Display */
+.points {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: linear-gradient(135deg, #FFD700, #FFA500); /* Gold to orange gradient for points */
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+  text-align: center;
+  z-index: 10;
+  transition: transform 0.2s, background 0.3s;
+}
+
+.points:hover {
+  transform: scale(1.05); /* Slight scale on hover */
+  background: linear-gradient(135deg, #FFA500, #FF4500); /* Slight color change on hover */
+}
+
+/* Quit Button (Enhanced) */
+.quit-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: crimson;
+  color: white;
+  padding: 10px 20px;
+  border: 2px solid white;
+  border-radius: 15px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); /* Shadow for depth */
+}
+
+.quit-button:hover {
+  background: darkred;
+  transform: scale(1.05);
+}
+
+.quit-button:active {
+  transform: scale(0.95);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .points {
+    font-size: 18px;
+    padding: 8px 15px;
+  }
+
+  .quit-button {
+    font-size: 16px;
+    padding: 8px 15px;
+  }
+}
+
+/* Existing CSS */
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .pyramid {
+    display: none; /* Hide the money ladder on mobile */
+  }
+
+  .main {
+    width: 100%; /* Make the quiz take up the full width */
+  }
+
+  .points {
+    font-size: 18px;
+    padding: 8px 15px;
+  }
+
+  .quit-button {
+    font-size: 16px;
+    padding: 8px 15px;
+  }
+}
+
+
+.outlined-button {
+  padding: 10px 20px;
+  border: 2px solid #007BFF; /* Border color */
+  background-color: transparent !important;
+  color: #007BFF !important; /* Text color */
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.outlined-button a:hover{
+  color: white;
+}
+.outlined-button a{
+  color:black
+}
+
+.outlined-button:hover {  
+  background-color: #007BFF !important; /* Hover background */
+  color: white!important /* Hover text color */
+}
+
+.userProfile{
+  width: 100px; /* Adjust size as needed */
+  height: 100px; /* Adjust size as needed */
+  /* border-radius: 50%;  */
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+  /* border: 2px solid #4CAF50;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+
+}

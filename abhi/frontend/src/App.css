@@ -1,0 +1,148 @@
+/* Home component specific styles */
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Disable scrolling */
+  font-family: "Poppins", system-ui;
+}
+
+.home-content {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  width: 100%;
+  max-width: 600px;
+  background-image: linear-gradient(to bottom, #2d2df1, #853e85b3, #338bc2b3); /* Soft light green background */
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  margin: 0 auto;
+  margin-top:10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Center content horizontally */
+}
+
+/* Responsive header */
+.home-header {
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+  color: #f5f8f5;
+  text-shadow: 2px 2px 0;
+  animation: bounceIn 1s ease-in-out;
+  margin-top: 0;
+  margin-bottom: 50px;
+}
+
+/* Select field container */
+.select-field {
+  margin-bottom: 20px;
+}
+
+.select-label {
+  font-size: 16px;
+  margin-bottom: 10px;
+  text-align: left;
+  color: #e8e8e8;
+}
+
+/* Select input */
+.select-input {
+  width: 400px;
+  padding: 12px;
+  font-size: 14px;
+  border-radius: 10px;
+  border: 2px solid #7a66ee;
+  background-color: #ffffff;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.select-input:focus {
+  border-color: #4322ff;
+  box-shadow: 0 0 10px rgba(255, 87, 34, 0.4);
+}
+
+/* Submit button */
+.submit-button {
+  width: 170px;
+  padding: 15px;
+  font-size: 1.3rem;
+  color: #000000;
+  background-color: #432dce;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-top: 36px;
+  transition: background-color 0.3s, transform 0.3s;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+.submit-button:disabled {
+  background-color: #ffffff;
+  opacity: 0.4;
+}
+
+.submit-button:hover:not(:disabled) {
+  background-color: #fff;
+  transform: scale(1.05);
+}
+
+/* Loading spinner */
+.loading-spinner {
+  font-size: 1rem;
+  color: #FF5722;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+  .home-content {
+    width: 90%;
+  }
+
+  .home-header {
+    font-size: 2rem;
+  }
+
+  .select-input, .submit-button {
+    font-size: 1rem;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-header {
+    font-size: 1.8rem;
+  }
+
+  .select-input, .submit-button {
+    font-size: 0.9rem;
+  }
+
+  .submit-button {
+    padding: 12px;
+  }
+}
+
+.centered-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
